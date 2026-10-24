@@ -1,64 +1,265 @@
 {
   "project": "SafeBank Gateway",
-  "subtitle": "2026 深圳国际金融科技大赛 · 银行 AI 智能体赛题 · 三明治架构 AI 银行助手",
+  "subtitle": "",
   "updated_at": "2026-10-24T17:30:00+08:00",
   "deadline": "2026-11-02",
   "feature_freeze": "2026-10-30",
   "architecture": [
-    {"id": "L1", "name": "Banking Agent", "desc": "LangGraph + DeepSeek V4 Pro：理解意图、追问、生成结构化计划；不持有任何写权限"},
-    {"id": "L2", "name": "Security Gateway", "desc": "所有工具调用的唯一入口：原话授权、来源与污点、累积金融预演、跨会话工作流规则、审批/OTP、原子执行与恢复、审计"},
-    {"id": "L3", "name": "Banking Backend", "desc": "FastAPI + PostgreSQL 模拟银行：账户、账本、卡片、代扣义务、快照、执行意图"}
+    {
+      "id": "L1",
+      "name": "Banking Agent",
+      "desc": "LangGraph + DeepSeek V4 Pro：理解意图、追问、生成结构化计划；不持有任何写权限"
+    },
+    {
+      "id": "L2",
+      "name": "Security Gateway",
+      "desc": "所有工具调用的唯一入口：原话授权、来源与污点、累积金融预演、跨会话工作流规则、审批/OTP、原子执行与恢复、审计"
+    },
+    {
+      "id": "L3",
+      "name": "Banking Backend",
+      "desc": "FastAPI + PostgreSQL 模拟银行：账户、账本、卡片、代扣义务、快照、执行意图"
+    }
   ],
   "phases": [
-    {"id": "P0", "name": "环境与模型接入核实", "status": "done", "note": "双网与凭证隔离、密钥、DeepSeek strict 调用实测"},
-    {"id": "P1", "name": "L3 银行核心", "status": "done", "note": "契约 v1（18 读 / 14 写）、账本、转账/收款人/卡片、原子执行与恢复；已实现的领域写只有转账、收款人、卡片"},
-    {"id": "P2", "name": "三层贯通的确认转账细线", "status": "in_progress", "note": "L1 理解→L2 评估与确认面板→确认→执行→L3 实际转账只记一次；尚未真实闭合"},
-    {"id": "P3", "name": "集成攻击验收 A1/A2/A3", "status": "todo", "note": "拆分转账、备注注入、跨会话危险序列；以 L3 数据库状态判定"},
-    {"id": "P4+", "name": "六场景铺开、评测、演示与提交物", "status": "todo", "note": "前端 App / BFF 目前暂停，待团队决定后开工"}
+    {
+      "id": "P0",
+      "name": "环境与模型接入核实",
+      "status": "done",
+      "note": "双网与凭证隔离、密钥、DeepSeek strict 调用实测"
+    },
+    {
+      "id": "P1",
+      "name": "L3 银行核心",
+      "status": "done",
+      "note": "契约 v1（18 读 / 14 写）、账本、转账/收款人/卡片、原子执行与恢复；已实现的领域写只有转账、收款人、卡片"
+    },
+    {
+      "id": "P2",
+      "name": "三层贯通的确认转账细线",
+      "status": "in_progress",
+      "note": "L1 理解→L2 评估与确认面板→确认→执行→L3 实际转账只记一次；尚未真实闭合"
+    },
+    {
+      "id": "P3",
+      "name": "集成攻击验收 A1/A2/A3",
+      "status": "todo",
+      "note": "拆分转账、备注注入、跨会话危险序列；以 L3 数据库状态判定"
+    },
+    {
+      "id": "P4+",
+      "name": "六场景铺开、评测、演示与提交物",
+      "status": "todo",
+      "note": "前端 App / BFF 目前暂停，待团队决定后开工"
+    }
   ],
   "tracks": [
     {
       "id": "L1",
       "name": "L1 Agent",
       "components": [
-        {"id": "C1a", "name": "LangGraph 图骨架与中断恢复", "status": "done", "pr": 17, "merged": "2026-10-23"},
-        {"id": "C1b", "name": "DeepSeek strict 理解 / 收集 / 计划", "status": "done", "pr": 19, "merged": "2026-10-23"},
-        {"id": "C1c1", "name": "Gateway 协议客户端", "status": "done", "pr": 21, "merged": "2026-10-24"},
-        {"id": "C1c2", "name": "完整图路由（PRD §6.1.1 返回码）", "status": "review", "pr": null, "merged": null, "note": "评审修复轮 2 进行中：去除全局 monkey-patch，防止并发会话串用"},
-        {"id": "C1d", "name": "Postgres checkpoint、服务与重启恢复", "status": "todo", "pr": null, "merged": null},
-        {"id": "C1e", "name": "输出校验、确定性卡片与录制回放", "status": "todo", "pr": null, "merged": null}
+        {
+          "id": "C1a",
+          "name": "LangGraph 图骨架与中断恢复",
+          "status": "done",
+          "pr": 17,
+          "merged": "2026-10-23"
+        },
+        {
+          "id": "C1b",
+          "name": "DeepSeek strict 理解 / 收集 / 计划",
+          "status": "done",
+          "pr": 19,
+          "merged": "2026-10-23"
+        },
+        {
+          "id": "C1c1",
+          "name": "Gateway 协议客户端",
+          "status": "done",
+          "pr": 21,
+          "merged": "2026-10-24"
+        },
+        {
+          "id": "C1c2",
+          "name": "完整图路由（PRD §6.1.1 返回码）",
+          "status": "review",
+          "pr": null,
+          "merged": null,
+          "note": "评审修复轮 2 进行中：去除全局 monkey-patch，防止并发会话串用"
+        },
+        {
+          "id": "C1d",
+          "name": "Postgres checkpoint、服务与重启恢复",
+          "status": "todo",
+          "pr": null,
+          "merged": null
+        },
+        {
+          "id": "C1e",
+          "name": "输出校验、确定性卡片与录制回放",
+          "status": "todo",
+          "pr": null,
+          "merged": null
+        }
       ]
     },
     {
       "id": "L2",
       "name": "L2 Security Gateway",
       "components": [
-        {"id": "W0", "name": "网关基础骨架", "status": "done", "pr": 2, "merged": "2026-10-23"},
-        {"id": "S1", "name": "共享运行层与 Linux 安全启动", "status": "done", "pr": 4, "merged": "2026-10-23"},
-        {"id": "S1b", "name": "持久状态与受控执行迁移", "status": "done", "pr": 6, "merged": "2026-10-23"},
-        {"id": "W4a", "name": "客户锁", "status": "done", "pr": 7, "merged": "2026-10-23"},
-        {"id": "S1c–S1f", "name": "PIN 配置、孤儿任务对账、敏感备注码、G22 条件挂载", "status": "done", "pr": null, "prs": [8, 9, 10, 12], "merged": "2026-10-23"},
-        {"id": "W1", "name": "身份、会话与原话授权", "status": "done", "pr": 13, "merged": "2026-10-23"},
-        {"id": "W2a", "name": "读代理、来源与污点", "status": "done", "pr": 16, "merged": "2026-10-23"},
-        {"id": "W2b", "name": "真实义务预留接线", "status": "done", "pr": 18, "merged": "2026-10-23"},
-        {"id": "W3a", "name": "快照 / 预演 / 工作流 / 决策阶段", "status": "done", "pr": 20, "merged": "2026-10-23"},
-        {"id": "W4b1", "name": "确定性确认面板与审批绑定", "status": "done", "pr": 22, "merged": "2026-10-24"},
-        {"id": "W4b2a", "name": "审批 / OTP 密钥运行时快照", "status": "done", "pr": 23, "merged": "2026-10-24"},
-        {"id": "W4b2b", "name": "确认面板查询、黄级确认、拒绝、审批列表", "status": "in_progress", "pr": null, "merged": null, "note": "任务书已定稿，实现中"},
-        {"id": "W4b2c", "name": "OTP 发送与红级确认", "status": "todo", "pr": null, "merged": null},
-        {"id": "W3b", "name": "完整计划评估端点 G4", "status": "todo", "pr": null, "merged": null},
-        {"id": "W4c", "name": "执行端点 G8 与 UNKNOWN 恢复", "status": "todo", "pr": null, "merged": null},
-        {"id": "W5/W6", "name": "定时授权、通知、审计接口；网关层安全验收", "status": "todo", "pr": null, "merged": null}
+        {
+          "id": "W0",
+          "name": "网关基础骨架",
+          "status": "done",
+          "pr": 2,
+          "merged": "2026-10-23"
+        },
+        {
+          "id": "S1",
+          "name": "共享运行层与 Linux 安全启动",
+          "status": "done",
+          "pr": 4,
+          "merged": "2026-10-23"
+        },
+        {
+          "id": "S1b",
+          "name": "持久状态与受控执行迁移",
+          "status": "done",
+          "pr": 6,
+          "merged": "2026-10-23"
+        },
+        {
+          "id": "W4a",
+          "name": "客户锁",
+          "status": "done",
+          "pr": 7,
+          "merged": "2026-10-23"
+        },
+        {
+          "id": "S1c–S1f",
+          "name": "PIN 配置、孤儿任务对账、敏感备注码、G22 条件挂载",
+          "status": "done",
+          "pr": null,
+          "prs": [
+            8,
+            9,
+            10,
+            12
+          ],
+          "merged": "2026-10-23"
+        },
+        {
+          "id": "W1",
+          "name": "身份、会话与原话授权",
+          "status": "done",
+          "pr": 13,
+          "merged": "2026-10-23"
+        },
+        {
+          "id": "W2a",
+          "name": "读代理、来源与污点",
+          "status": "done",
+          "pr": 16,
+          "merged": "2026-10-23"
+        },
+        {
+          "id": "W2b",
+          "name": "真实义务预留接线",
+          "status": "done",
+          "pr": 18,
+          "merged": "2026-10-23"
+        },
+        {
+          "id": "W3a",
+          "name": "快照 / 预演 / 工作流 / 决策阶段",
+          "status": "done",
+          "pr": 20,
+          "merged": "2026-10-23"
+        },
+        {
+          "id": "W4b1",
+          "name": "确定性确认面板与审批绑定",
+          "status": "done",
+          "pr": 22,
+          "merged": "2026-10-24"
+        },
+        {
+          "id": "W4b2a",
+          "name": "审批 / OTP 密钥运行时快照",
+          "status": "done",
+          "pr": 23,
+          "merged": "2026-10-24"
+        },
+        {
+          "id": "W4b2b",
+          "name": "确认面板查询、黄级确认、拒绝、审批列表",
+          "status": "in_progress",
+          "pr": null,
+          "merged": null,
+          "note": "任务书已定稿，实现中"
+        },
+        {
+          "id": "W4b2c",
+          "name": "OTP 发送与红级确认",
+          "status": "todo",
+          "pr": null,
+          "merged": null
+        },
+        {
+          "id": "W3b",
+          "name": "完整计划评估端点 G4",
+          "status": "todo",
+          "pr": null,
+          "merged": null
+        },
+        {
+          "id": "W4c",
+          "name": "执行端点 G8 与 UNKNOWN 恢复",
+          "status": "todo",
+          "pr": null,
+          "merged": null
+        },
+        {
+          "id": "W5/W6",
+          "name": "定时授权、通知、审计接口；网关层安全验收",
+          "status": "todo",
+          "pr": null,
+          "merged": null
+        }
       ]
     },
     {
       "id": "L3",
       "name": "L3 Banking Backend",
       "components": [
-        {"id": "P1", "name": "银行核心、契约 v1、纯函数账本", "status": "done", "pr": 1, "merged": "2026-10-23"},
-        {"id": "S2", "name": "七天预留纯函数", "status": "done", "pr": 5, "merged": "2026-10-23"},
-        {"id": "S3a", "name": "完整义务快照与 0003 安全升级", "status": "done", "pr": 15, "merged": "2026-10-23"},
-        {"id": "S3b+", "name": "其余读写工具（AA、定时、订阅、基金等）", "status": "todo", "pr": null, "merged": null}
+        {
+          "id": "P1",
+          "name": "银行核心、契约 v1、纯函数账本",
+          "status": "done",
+          "pr": 1,
+          "merged": "2026-10-23"
+        },
+        {
+          "id": "S2",
+          "name": "七天预留纯函数",
+          "status": "done",
+          "pr": 5,
+          "merged": "2026-10-23"
+        },
+        {
+          "id": "S3a",
+          "name": "完整义务快照与 0003 安全升级",
+          "status": "done",
+          "pr": 15,
+          "merged": "2026-10-23"
+        },
+        {
+          "id": "S3b+",
+          "name": "其余读写工具（AA、定时、订阅、基金等）",
+          "status": "todo",
+          "pr": null,
+          "merged": null
+        }
       ]
     }
   ],
@@ -67,12 +268,36 @@
     "date": "2026-10-24",
     "note": "main 合并后组合回归，协调者亲自运行",
     "results": [
-      {"suite": "全量单元", "passed": 2423, "skipped": 561},
-      {"suite": "Gateway", "passed": 1982, "skipped": 501},
-      {"suite": "Gateway 真实 PG", "passed": 17, "skipped": 0},
-      {"suite": "W1 身份与原话（真实 PG）", "passed": 1688, "skipped": 0},
-      {"suite": "W2 来源与预留", "passed": 246, "skipped": 0},
-      {"suite": "Agent", "passed": 212, "skipped": 0}
+      {
+        "suite": "全量单元",
+        "passed": 2423,
+        "skipped": 561
+      },
+      {
+        "suite": "Gateway",
+        "passed": 1982,
+        "skipped": 501
+      },
+      {
+        "suite": "Gateway 真实 PG",
+        "passed": 17,
+        "skipped": 0
+      },
+      {
+        "suite": "W1 身份与原话（真实 PG）",
+        "passed": 1688,
+        "skipped": 0
+      },
+      {
+        "suite": "W2 来源与预留",
+        "passed": 246,
+        "skipped": 0
+      },
+      {
+        "suite": "Agent",
+        "passed": 212,
+        "skipped": 0
+      }
     ],
     "caveat": "各套件互有重叠，数字不能相加；skip 不算通过"
   },
