@@ -1,7 +1,7 @@
 {
   "project": "SafeBank Gateway",
   "subtitle": "",
-  "updated_at": "2026-10-24T17:30:00+08:00",
+  "updated_at": "2026-10-24T19:30:00+08:00",
   "deadline": "2026-11-02",
   "feature_freeze": "2026-10-30",
   "architecture": [
@@ -82,10 +82,9 @@
         {
           "id": "C1c2",
           "name": "完整图路由（PRD §6.1.1 返回码）",
-          "status": "review",
-          "pr": null,
-          "merged": null,
-          "note": "评审修复轮 2 进行中：去除全局 monkey-patch，防止并发会话串用"
+          "status": "done",
+          "pr": 24,
+          "merged": "2026-10-24"
         },
         {
           "id": "C1d",
@@ -196,7 +195,7 @@
           "status": "in_progress",
           "pr": null,
           "merged": null,
-          "note": "任务书已定稿，实现中"
+          "note": "实现与真实 PG 测试已通过，补强并发密钥隔离测试中"
         },
         {
           "id": "W4b2c",
@@ -264,13 +263,13 @@
     }
   ],
   "latest_regression": {
-    "commit": "45b9b45",
+    "commit": "1ce15f0",
     "date": "2026-10-24",
-    "note": "main 合并后组合回归，协调者亲自运行",
+    "note": "main 合并 PR #24 后组合回归，协调者亲自运行",
     "results": [
       {
         "suite": "全量单元",
-        "passed": 2423,
+        "passed": 2498,
         "skipped": 561
       },
       {
@@ -295,7 +294,7 @@
       },
       {
         "suite": "Agent",
-        "passed": 212,
+        "passed": 287,
         "skipped": 0
       }
     ],
