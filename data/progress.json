@@ -1,7 +1,7 @@
 {
   "project": "SafeBank Gateway",
   "subtitle": "",
-  "updated_at": "2026-10-25T09:00:00+08:00",
+  "updated_at": "2026-10-25T14:00:00+08:00",
   "deadline": "2026-11-02",
   "feature_freeze": "2026-10-30",
   "architecture": [
@@ -97,9 +97,10 @@
         {
           "id": "C1e",
           "name": "输出校验、确定性卡片与录制回放",
-          "status": "todo",
-          "pr": null,
-          "merged": null
+          "status": "done",
+          "pr": 28,
+          "merged": "2026-10-25",
+          "note": "已知问题：中文金额角/分与中阿混写解析不完整"
         }
       ]
     },
@@ -201,17 +202,17 @@
         {
           "id": "W4b2c",
           "name": "OTP 发送与红级确认",
-          "status": "review",
-          "pr": null,
-          "merged": null,
-          "note": "实现与真实 PG 测试已通过，评审修复中"
+          "status": "done",
+          "pr": 27,
+          "merged": "2026-10-25"
         },
         {
           "id": "W3b",
           "name": "完整计划评估端点 G4",
-          "status": "todo",
+          "status": "in_progress",
           "pr": null,
-          "merged": null
+          "merged": null,
+          "note": "实现中（模型接口暂时不可用，已暂停）"
         },
         {
           "id": "W4c",
@@ -265,19 +266,19 @@
     }
   ],
   "latest_regression": {
-    "commit": "0472689",
+    "commit": "5c15d84",
     "date": "2026-10-25",
-    "note": "main 合并 PR #26 后组合回归，协调者亲自运行",
+    "note": "main 合并 PR #28 后组合回归，协调者亲自运行",
     "results": [
       {
         "suite": "全量单元",
-        "passed": 2504,
-        "skipped": 643
+        "passed": 2701,
+        "skipped": 673
       },
       {
         "suite": "Gateway",
-        "passed": 1987,
-        "skipped": 553
+        "passed": 2017,
+        "skipped": 580
       },
       {
         "suite": "Gateway 真实 PG",
@@ -290,19 +291,19 @@
         "skipped": 0
       },
       {
-        "suite": "W4b2b 审批端点（真实 PG）",
-        "passed": 57,
+        "suite": "W4b2c OTP（含真实 PG）",
+        "passed": 56,
         "skipped": 0
       },
       {
         "suite": "Agent checkpoint（真实 PG）",
-        "passed": 31,
+        "passed": 34,
         "skipped": 0
       },
       {
         "suite": "Agent",
-        "passed": 288,
-        "skipped": 30
+        "passed": 455,
+        "skipped": 33
       }
     ],
     "caveat": "各套件互有重叠，数字不能相加；skip 不算通过"
