@@ -1,7 +1,7 @@
 {
   "project": "SafeBank Gateway",
   "subtitle": "",
-  "updated_at": "2026-10-24T19:30:00+08:00",
+  "updated_at": "2026-10-24T22:30:00+08:00",
   "deadline": "2026-11-02",
   "feature_freeze": "2026-10-30",
   "architecture": [
@@ -89,9 +89,10 @@
         {
           "id": "C1d",
           "name": "Postgres checkpoint、服务与重启恢复",
-          "status": "todo",
+          "status": "in_progress",
           "pr": null,
-          "merged": null
+          "merged": null,
+          "note": "Postgres checkpoint、线程锁、中断替代已完成并提交；服务入口实现中（模型接口暂时不可用）"
         },
         {
           "id": "C1e",
@@ -192,10 +193,10 @@
         {
           "id": "W4b2b",
           "name": "确认面板查询、黄级确认、拒绝、审批列表",
-          "status": "in_progress",
-          "pr": null,
-          "merged": null,
-          "note": "实现与真实 PG 测试已通过，补强并发密钥隔离测试中"
+          "status": "done",
+          "pr": 25,
+          "merged": "2026-10-24",
+          "note": "已知问题：与 supersede 路径存在低概率死锁，PG 自动中止可重试，W3b 统一锁序"
         },
         {
           "id": "W4b2c",
@@ -263,19 +264,19 @@
     }
   ],
   "latest_regression": {
-    "commit": "1ce15f0",
+    "commit": "72a4161",
     "date": "2026-10-24",
-    "note": "main 合并 PR #24 后组合回归，协调者亲自运行",
+    "note": "main 合并 PR #25 后组合回归，协调者亲自运行",
     "results": [
       {
         "suite": "全量单元",
-        "passed": 2498,
-        "skipped": 561
+        "passed": 2503,
+        "skipped": 613
       },
       {
         "suite": "Gateway",
-        "passed": 1982,
-        "skipped": 501
+        "passed": 1987,
+        "skipped": 553
       },
       {
         "suite": "Gateway 真实 PG",
@@ -288,8 +289,8 @@
         "skipped": 0
       },
       {
-        "suite": "W2 来源与预留",
-        "passed": 246,
+        "suite": "W4b2b 审批端点（真实 PG）",
+        "passed": 57,
         "skipped": 0
       },
       {
