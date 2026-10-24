@@ -1,7 +1,7 @@
 {
   "project": "SafeBank Gateway",
   "subtitle": "",
-  "updated_at": "2026-10-24T22:30:00+08:00",
+  "updated_at": "2026-10-25T09:00:00+08:00",
   "deadline": "2026-11-02",
   "feature_freeze": "2026-10-30",
   "architecture": [
@@ -89,10 +89,10 @@
         {
           "id": "C1d",
           "name": "Postgres checkpoint、服务与重启恢复",
-          "status": "in_progress",
-          "pr": null,
-          "merged": null,
-          "note": "Postgres checkpoint、线程锁、中断替代已完成并提交；服务入口实现中（模型接口暂时不可用）"
+          "status": "done",
+          "pr": 26,
+          "merged": "2026-10-25",
+          "note": "真实 PG checkpoint、线程锁、服务入口、重启恢复；与 L2 G4/G8 的真实联调待 L2 完成"
         },
         {
           "id": "C1e",
@@ -201,9 +201,10 @@
         {
           "id": "W4b2c",
           "name": "OTP 发送与红级确认",
-          "status": "todo",
+          "status": "review",
           "pr": null,
-          "merged": null
+          "merged": null,
+          "note": "实现与真实 PG 测试已通过，评审修复中"
         },
         {
           "id": "W3b",
@@ -264,14 +265,14 @@
     }
   ],
   "latest_regression": {
-    "commit": "72a4161",
-    "date": "2026-10-24",
-    "note": "main 合并 PR #25 后组合回归，协调者亲自运行",
+    "commit": "0472689",
+    "date": "2026-10-25",
+    "note": "main 合并 PR #26 后组合回归，协调者亲自运行",
     "results": [
       {
         "suite": "全量单元",
-        "passed": 2503,
-        "skipped": 613
+        "passed": 2504,
+        "skipped": 643
       },
       {
         "suite": "Gateway",
@@ -294,9 +295,14 @@
         "skipped": 0
       },
       {
-        "suite": "Agent",
-        "passed": 287,
+        "suite": "Agent checkpoint（真实 PG）",
+        "passed": 31,
         "skipped": 0
+      },
+      {
+        "suite": "Agent",
+        "passed": 288,
+        "skipped": 30
       }
     ],
     "caveat": "各套件互有重叠，数字不能相加；skip 不算通过"
