@@ -1,23 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <title>SafeBank Gateway · 项目进度</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <header id="site-header"></header>
-  <main>
-    <section id="architecture" aria-labelledby="arch-heading"></section>
-    <section id="phases" aria-labelledby="phases-heading"></section>
-    <section id="tracks" aria-labelledby="tracks-heading"></section>
-    <section id="regression" aria-labelledby="regression-heading"></section>
-    <section id="process" aria-labelledby="process-heading"></section>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Development Progress</p>
+      <h1 id="title">SafeBank Gateway</h1>
+      <p class="subtitle" id="subtitle"></p>
+      <dl class="stats" id="stats"></dl>
+    </div>
+  </header>
+
+  <main class="wrap" id="main">
+    <p class="status-msg" id="status-msg">正在加载进度数据…</p>
+
+    <section aria-labelledby="h-phases">
+      <h2 id="h-phases">阶段</h2>
+      <ol class="phases" id="phases"></ol>
+    </section>
+
+    <section aria-labelledby="h-tracks">
+      <h2 id="h-tracks">开发轨道</h2>
+      <div class="tracks" id="tracks"></div>
+    </section>
+
+    <section aria-labelledby="h-regression">
+      <h2 id="h-regression">最近一次回归</h2>
+      <div class="card" id="regression"></div>
+    </section>
+
+    <section aria-labelledby="h-arch">
+      <h2 id="h-arch">三层架构</h2>
+      <div class="arch" id="arch"></div>
+    </section>
+
+    <section aria-labelledby="h-process">
+      <h2 id="h-process">交付流程</h2>
+      <p class="process" id="process"></p>
+    </section>
   </main>
-  <footer>
-    <p>数据来源：data/progress.json</p>
+
+  <footer class="wrap footer">
+    <p id="updated"></p>
   </footer>
+
   <script src="assets/app.js"></script>
 </body>
 </html>
