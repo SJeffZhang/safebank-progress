@@ -1,7 +1,7 @@
 {
   "project": "SafeBank Gateway",
   "subtitle": "",
-  "updated_at": "2026-10-25T14:00:00+08:00",
+  "updated_at": "2026-10-26T10:00:00+08:00",
   "deadline": "2026-11-02",
   "feature_freeze": "2026-10-30",
   "architecture": [
@@ -197,7 +197,7 @@
           "status": "done",
           "pr": 25,
           "merged": "2026-10-24",
-          "note": "已知问题：与 supersede 路径存在低概率死锁，PG 自动中止可重试，W3b 统一锁序"
+          "note": "锁序已知问题已由 W3b 统一解决"
         },
         {
           "id": "W4b2c",
@@ -209,17 +209,18 @@
         {
           "id": "W3b",
           "name": "完整计划评估端点 G4",
-          "status": "in_progress",
-          "pr": null,
-          "merged": null,
-          "note": "实现中（模型接口暂时不可用，已暂停）"
+          "status": "done",
+          "pr": 29,
+          "merged": "2026-10-26",
+          "note": "真实 G4 端到端，冷静期原子写入，全局锁序统一（解决 W4b2b 死锁隐患）"
         },
         {
           "id": "W4c",
           "name": "执行端点 G8 与 UNKNOWN 恢复",
-          "status": "todo",
+          "status": "in_progress",
           "pr": null,
-          "merged": null
+          "merged": null,
+          "note": "任务书已定稿，实现中：真实 G8/G5、屏障与 UNKNOWN 恢复"
         },
         {
           "id": "W5/W6",
@@ -266,19 +267,19 @@
     }
   ],
   "latest_regression": {
-    "commit": "5c15d84",
-    "date": "2026-10-25",
-    "note": "main 合并 PR #28 后组合回归，协调者亲自运行",
+    "commit": "9b8c65a",
+    "date": "2026-10-26",
+    "note": "main 合并 PR #29 后组合回归，协调者亲自运行",
     "results": [
       {
         "suite": "全量单元",
-        "passed": 2701,
-        "skipped": 673
+        "passed": 2702,
+        "skipped": 705
       },
       {
         "suite": "Gateway",
-        "passed": 2017,
-        "skipped": 580
+        "passed": 2018,
+        "skipped": 612
       },
       {
         "suite": "Gateway 真实 PG",
@@ -291,13 +292,13 @@
         "skipped": 0
       },
       {
-        "suite": "W4b2c OTP（含真实 PG）",
-        "passed": 56,
+        "suite": "W3b 计划评估（真实 PG）",
+        "passed": 33,
         "skipped": 0
       },
       {
-        "suite": "Agent checkpoint（真实 PG）",
-        "passed": 34,
+        "suite": "W4b2c OTP（含真实 PG）",
+        "passed": 56,
         "skipped": 0
       },
       {
