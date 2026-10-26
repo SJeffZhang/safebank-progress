@@ -1,7 +1,7 @@
 {
   "project": "SafeBank Gateway",
   "subtitle": "",
-  "updated_at": "2026-10-26T10:00:00+08:00",
+  "updated_at": "2026-10-26",
   "deadline": "2026-11-02",
   "feature_freeze": "2026-10-30",
   "architecture": [
@@ -101,6 +101,22 @@
           "pr": 28,
           "merged": "2026-10-25",
           "note": "已知问题：中文金额角/分与中阿混写解析不完整"
+        },
+        {
+          "id": "E0a",
+          "name": "L1 稳定性评测语料与种子",
+          "status": "done",
+          "pr": 30,
+          "merged": "2026-10-26",
+          "note": "405 条语料（攻击 72 条），确定性生成与校验"
+        },
+        {
+          "id": "E0b",
+          "name": "L1 稳定性评测 runner 与指标",
+          "status": "in_progress",
+          "pr": null,
+          "merged": null,
+          "note": "真实 L3 + 真实 gateway G4 + L1 graph 已打通，指标与报告实现中"
         }
       ]
     },
@@ -267,13 +283,13 @@
     }
   ],
   "latest_regression": {
-    "commit": "9b8c65a",
+    "commit": "51c3b90",
     "date": "2026-10-26",
-    "note": "main 合并 PR #29 后组合回归，协调者亲自运行",
+    "note": "main 合并 PR #30 后组合回归，协调者亲自运行",
     "results": [
       {
         "suite": "全量单元",
-        "passed": 2702,
+        "passed": 2727,
         "skipped": 705
       },
       {
@@ -302,9 +318,14 @@
         "skipped": 0
       },
       {
-        "suite": "Agent",
-        "passed": 455,
-        "skipped": 33
+        "suite": "Agent 真实 PG",
+        "passed": 34,
+        "skipped": 0
+      },
+      {
+        "suite": "E0a 语料校验",
+        "passed": 25,
+        "skipped": 0
       }
     ],
     "caveat": "各套件互有重叠，数字不能相加；skip 不算通过"
