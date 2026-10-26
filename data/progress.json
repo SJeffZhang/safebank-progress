@@ -113,10 +113,10 @@
         {
           "id": "E0b",
           "name": "L1 稳定性评测 runner 与指标",
-          "status": "in_progress",
+          "status": "todo",
           "pr": null,
           "merged": null,
-          "note": "真实 L3 + 真实 gateway G4 + L1 graph 已打通，指标与报告实现中"
+          "note": "runner、指标与报告函数已完成；收尾与 live 评测按用户指令暂停"
         }
       ]
     },
