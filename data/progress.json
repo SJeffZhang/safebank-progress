@@ -113,10 +113,17 @@
         {
           "id": "E0b",
           "name": "L1 稳定性评测 runner 与指标",
-          "status": "in_progress",
-          "pr": null,
-          "merged": null,
+          "status": "done",
+          "pr": 39,
+          "merged": "2026-10-27",
           "note": "评测运行与逐样本证据收尾进行中；真实小样本将用于定位并修复L1"
+        },
+        {
+          "id": "L1-fix",
+          "name": "L1 稳定性修复（空值包装、计划本地校验、转账补读账户）",
+          "status": "done",
+          "pr": 38,
+          "merged": "2026-10-27"
         },
         {
           "id": "L1-wire",
@@ -306,33 +313,18 @@
     }
   ],
   "latest_regression": {
-    "commit": "8383a2c",
+    "commit": "5dd086c",
     "date": "2026-10-27",
-    "note": "PR #35 合入前在与 main 相同的合并树上协调者亲跑；完整 P2 仍待真实三层转账验收",
+    "note": "PR #39 合入前在合并最新 main 的树上协调者亲跑；live 抽测 4 条转账×3 次 12/12 到达真实 G4；完整 P2 仍待真实三层转账验收",
     "results": [
       {
         "suite": "全量单元",
-        "passed": 2772,
-        "skipped": 755
+        "passed": 2897,
+        "skipped": 769
       },
       {
-        "suite": "Gateway",
-        "passed": 2018,
-        "skipped": 657
-      },
-      {
-        "suite": "W1 身份与原话（真实PG）",
-        "passed": 1688,
-        "skipped": 0
-      },
-      {
-        "suite": "W3b 完整G4（真实PG）",
-        "passed": 40,
-        "skipped": 0
-      },
-      {
-        "suite": "W4c 执行与恢复（真实PG+L3）",
-        "passed": 38,
+        "suite": "E0b 评测框架（真实PG+L3+gateway）",
+        "passed": 119,
         "skipped": 0
       },
       {
