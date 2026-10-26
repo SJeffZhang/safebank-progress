@@ -233,10 +233,10 @@
         {
           "id": "W4c",
           "name": "执行端点 G8 与 UNKNOWN 恢复",
-          "status": "in_progress",
-          "pr": null,
-          "merged": null,
-          "note": "任务书已定稿，实现中：真实 G8/G5、屏障与 UNKNOWN 恢复"
+          "status": "done",
+          "pr": 31,
+          "merged": "2026-10-26",
+          "note": "G8 执行/G5 状态、STATE_CHANGED 屏障与恢复、UNKNOWN 对账、request_id 重放；真实 L3 上 38 项测试"
         },
         {
           "id": "W5/W6",
@@ -283,19 +283,19 @@
     }
   ],
   "latest_regression": {
-    "commit": "51c3b90",
+    "commit": "00aca15",
     "date": "2026-10-26",
-    "note": "main 合并 PR #30 后组合回归，协调者亲自运行",
+    "note": "main 合并 PR #31 后组合回归，协调者亲自运行；长期栈网关库已迁移到 0003",
     "results": [
       {
         "suite": "全量单元",
         "passed": 2727,
-        "skipped": 705
+        "skipped": 743
       },
       {
         "suite": "Gateway",
         "passed": 2018,
-        "skipped": 612
+        "skipped": 650
       },
       {
         "suite": "Gateway 真实 PG",
@@ -308,13 +308,13 @@
         "skipped": 0
       },
       {
-        "suite": "W3b 计划评估（真实 PG）",
-        "passed": 33,
+        "suite": "W4c 执行与恢复（真实 PG + 真实 L3）",
+        "passed": 38,
         "skipped": 0
       },
       {
-        "suite": "W4b2c OTP（含真实 PG）",
-        "passed": 56,
+        "suite": "W3b 计划评估（真实 PG）",
+        "passed": 33,
         "skipped": 0
       },
       {
