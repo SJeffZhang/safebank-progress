@@ -1,7 +1,7 @@
 {
   "project": "SafeBank Gateway",
   "subtitle": "",
-  "updated_at": "2026-10-26",
+  "updated_at": "2026-10-27",
   "deadline": "2026-11-02",
   "feature_freeze": "2026-10-30",
   "architecture": [
@@ -129,9 +129,9 @@
         {
           "id": "try-agent",
           "name": "命令行驱动（T1到确认面板）",
-          "status": "review",
+          "status": "done",
           "pr": 34,
-          "merged": null,
+          "merged": "2026-10-26",
           "note": "协议与输出测试通过，等待CI；确认执行与真实记账验收待后续"
         }
       ]
@@ -255,6 +255,13 @@
           "note": "G8 执行/G5 状态、STATE_CHANGED 屏障与恢复、UNKNOWN 对账、request_id 重放；真实 L3 上 38 项测试"
         },
         {
+          "id": "P2-key",
+          "name": "审批实例密钥（G4 / 屏障创建审批）",
+          "status": "done",
+          "pr": 35,
+          "merged": "2026-10-27"
+        },
+        {
           "id": "W5/W6",
           "name": "定时授权、通知、审计接口；网关层安全验收",
           "status": "todo",
@@ -299,33 +306,38 @@
     }
   ],
   "latest_regression": {
-    "commit": "62e83ac",
-    "date": "2026-10-26",
-    "note": "main合并PR #33后协调者亲跑L1组合回归；完整P2仍待真实转账验收",
+    "commit": "8383a2c",
+    "date": "2026-10-27",
+    "note": "PR #35 合入前在与 main 相同的合并树上协调者亲跑；完整 P2 仍待真实三层转账验收",
     "results": [
       {
         "suite": "全量单元",
-        "passed": 2727,
-        "skipped": 748
+        "passed": 2772,
+        "skipped": 755
+      },
+      {
+        "suite": "Gateway",
+        "passed": 2018,
+        "skipped": 657
+      },
+      {
+        "suite": "W1 身份与原话（真实PG）",
+        "passed": 1688,
+        "skipped": 0
+      },
+      {
+        "suite": "W3b 完整G4（真实PG）",
+        "passed": 40,
+        "skipped": 0
+      },
+      {
+        "suite": "W4c 执行与恢复（真实PG+L3）",
+        "passed": 38,
+        "skipped": 0
       },
       {
         "suite": "Agent 真实PG",
         "passed": 39,
-        "skipped": 0
-      },
-      {
-        "suite": "录制回放",
-        "passed": 47,
-        "skipped": 0
-      },
-      {
-        "suite": "输出校验",
-        "passed": 70,
-        "skipped": 0
-      },
-      {
-        "suite": "确定性卡片",
-        "passed": 19,
         "skipped": 0
       }
     ],
