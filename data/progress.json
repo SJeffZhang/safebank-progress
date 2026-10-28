@@ -1,7 +1,7 @@
 {
   "project": "SafeBank Gateway",
   "subtitle": "",
-  "updated_at": "2026-10-27",
+  "updated_at": "2026-10-28",
   "deadline": "2026-11-02",
   "feature_freeze": "2026-10-30",
   "architecture": [
@@ -140,6 +140,27 @@
           "pr": 34,
           "merged": "2026-10-26",
           "note": "协议与输出测试通过，等待CI；确认执行与真实记账验收待后续"
+        },
+        {
+          "id": "L1-ch",
+          "name": "渠道开关参数来源修正",
+          "status": "done",
+          "pr": 44,
+          "merged": "2026-10-27"
+        },
+        {
+          "id": "L1-clar",
+          "name": "缺用户信息时转为追问",
+          "status": "done",
+          "pr": 46,
+          "merged": "2026-10-28"
+        },
+        {
+          "id": "TA-T2",
+          "name": "命令行驱动（T2 人工确认后执行）",
+          "status": "review",
+          "pr": 47,
+          "merged": null
         }
       ]
     },
@@ -269,6 +290,20 @@
           "merged": "2026-10-27"
         },
         {
+          "id": "L2-utt",
+          "name": "原话解析补全（转账/卡渠道/新增收款人）",
+          "status": "done",
+          "pr": 41,
+          "merged": "2026-10-27"
+        },
+        {
+          "id": "L2-prov",
+          "name": "参数来源一致性",
+          "status": "done",
+          "pr": 43,
+          "merged": "2026-10-27"
+        },
+        {
           "id": "W5/W6",
           "name": "定时授权、通知、审计接口；网关层安全验收",
           "status": "todo",
@@ -303,8 +338,50 @@
           "merged": "2026-10-23"
         },
         {
-          "id": "S3b+",
-          "name": "其余读写工具（AA、定时、订阅、基金等）",
+          "id": "C1",
+          "name": "义务查询（定时/订阅/未来扣款）",
+          "status": "done",
+          "pr": "40, 42",
+          "merged": "2026-10-27"
+        },
+        {
+          "id": "C2",
+          "name": "账单分析（消费汇总、异常检测）",
+          "status": "review",
+          "pr": 45,
+          "merged": null
+        },
+        {
+          "id": "C3",
+          "name": "定时转账与撤销代扣",
+          "status": "in_progress",
+          "pr": null,
+          "merged": null
+        },
+        {
+          "id": "C4",
+          "name": "AA 分摊",
+          "status": "in_progress",
+          "pr": null,
+          "merged": null
+        },
+        {
+          "id": "C5",
+          "name": "风险问卷与测评",
+          "status": "in_progress",
+          "pr": null,
+          "merged": null
+        },
+        {
+          "id": "C6a",
+          "name": "理财产品只读",
+          "status": "in_progress",
+          "pr": null,
+          "merged": null
+        },
+        {
+          "id": "C6",
+          "name": "基金申购赎回与事件",
           "status": "todo",
           "pr": null,
           "merged": null
@@ -313,14 +390,29 @@
     }
   ],
   "latest_regression": {
-    "commit": "5dd086c",
-    "date": "2026-10-27",
-    "note": "PR #39 合入前在合并最新 main 的树上协调者亲跑；live 抽测 4 条转账×3 次 12/12 到达真实 G4；完整 P2 仍待真实三层转账验收",
+    "commit": "5e11bb5",
+    "date": "2026-10-28",
+    "note": "PR #44 合入后在 main 上协调者亲跑全量回归，24 个套件全部通过",
     "results": [
       {
         "suite": "全量单元",
-        "passed": 2897,
-        "skipped": 769
+        "passed": 3021,
+        "skipped": 794
+      },
+      {
+        "suite": "网关",
+        "passed": 2101,
+        "skipped": 657
+      },
+      {
+        "suite": "W1 身份与原话（真实PG）",
+        "passed": 1761,
+        "skipped": 0
+      },
+      {
+        "suite": "L3 义务数据（真实PG）",
+        "passed": 55,
+        "skipped": 0
       },
       {
         "suite": "E0b 评测框架（真实PG+L3+gateway）",
@@ -328,8 +420,8 @@
         "skipped": 0
       },
       {
-        "suite": "Agent 真实PG",
-        "passed": 39,
+        "suite": "执行端点 W4c（真实PG+L3）",
+        "passed": 38,
         "skipped": 0
       }
     ],
