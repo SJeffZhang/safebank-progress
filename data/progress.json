@@ -38,7 +38,7 @@
       "id": "P2",
       "name": "三层贯通的确认转账细线",
       "status": "in_progress",
-      "note": "L1 理解→L2 评估与确认面板→确认→执行→L3 实际转账只记一次；尚未真实闭合"
+      "note": "2026-10-28 首笔真实三层转账成功：L1→L2 评估与确认→L3 记账，数据库前后核对一致；负面用例与重启恢复待验收"
     },
     {
       "id": "P3",
@@ -158,9 +158,16 @@
         {
           "id": "TA-T2",
           "name": "命令行驱动（T2 人工确认后执行）",
-          "status": "review",
+          "status": "done",
           "pr": 47,
-          "merged": null
+          "merged": "2026-10-28"
+        },
+        {
+          "id": "L1-log",
+          "name": "网关报错日志（状态码与错误码）",
+          "status": "done",
+          "pr": 52,
+          "merged": "2026-10-28"
         }
       ]
     },
@@ -304,6 +311,20 @@
           "merged": "2026-10-27"
         },
         {
+          "id": "G4fix",
+          "name": "评估接口请求体按 PRD 修正（真实链路首次打通）",
+          "status": "done",
+          "pr": 54,
+          "merged": "2026-10-28"
+        },
+        {
+          "id": "D5",
+          "name": "演示控制台与模拟短信验证码",
+          "status": "in_progress",
+          "pr": null,
+          "merged": null
+        },
+        {
           "id": "W5/W6",
           "name": "定时授权、通知、审计接口；网关层安全验收",
           "status": "todo",
@@ -346,31 +367,31 @@
         },
         {
           "id": "C2",
-          "name": "账单分析（消费汇总、异常检测）",
-          "status": "review",
-          "pr": 45,
-          "merged": null
+          "name": "账单分析（消费汇总、异常检测、订阅识别）",
+          "status": "done",
+          "pr": "45, 49",
+          "merged": "2026-10-28"
         },
         {
           "id": "C3",
           "name": "定时转账与撤销代扣",
-          "status": "in_progress",
+          "status": "review",
           "pr": null,
           "merged": null
         },
         {
           "id": "C4",
           "name": "AA 分摊",
-          "status": "in_progress",
-          "pr": null,
-          "merged": null
+          "status": "done",
+          "pr": 50,
+          "merged": "2026-10-28"
         },
         {
           "id": "C5",
           "name": "风险问卷与测评",
-          "status": "in_progress",
-          "pr": null,
-          "merged": null
+          "status": "done",
+          "pr": 53,
+          "merged": "2026-10-28"
         },
         {
           "id": "C6a",
