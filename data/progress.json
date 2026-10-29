@@ -175,6 +175,20 @@
           "status": "done",
           "pr": 58,
           "merged": "2026-10-29"
+        },
+        {
+          "id": "L1-gather",
+          "name": "查询收集到上限时用已读数据作答",
+          "status": "done",
+          "pr": 62,
+          "merged": "2026-10-29"
+        },
+        {
+          "id": "L1-account",
+          "name": "未指定付款账户时默认活期",
+          "status": "done",
+          "pr": 67,
+          "merged": "2026-10-29"
         }
       ]
     },
@@ -337,6 +351,34 @@
           "status": "todo",
           "pr": null,
           "merged": null
+        },
+        {
+          "id": "L2-loosen-red",
+          "name": "调高限额 / 开启渠道判红级",
+          "status": "done",
+          "pr": 60,
+          "merged": "2026-10-29"
+        },
+        {
+          "id": "L2-parser-a",
+          "name": "原话解析：新增收款人、挂失、取消订阅/定时",
+          "status": "done",
+          "pr": 61,
+          "merged": "2026-10-29"
+        },
+        {
+          "id": "L2-parser-b",
+          "name": "原话解析：定时转账、AA",
+          "status": "done",
+          "pr": 66,
+          "merged": "2026-10-29"
+        },
+        {
+          "id": "L2-parser-c",
+          "name": "原话解析：跨场景 X-2",
+          "status": "done",
+          "pr": 68,
+          "merged": "2026-10-29"
         }
       ]
     },
@@ -403,9 +445,9 @@
         {
           "id": "C6a",
           "name": "理财产品只读",
-          "status": "in_progress",
-          "pr": null,
-          "merged": null
+          "status": "done",
+          "pr": 59,
+          "merged": "2026-10-29"
         },
         {
           "id": "C6",
@@ -413,6 +455,27 @@
           "status": "todo",
           "pr": null,
           "merged": null
+        },
+        {
+          "id": "L3-riskdate",
+          "name": "风险测评有效期按业务日期判断",
+          "status": "done",
+          "pr": 63,
+          "merged": "2026-10-29"
+        },
+        {
+          "id": "L3-seed-products",
+          "name": "演示种子：理财产品",
+          "status": "done",
+          "pr": 64,
+          "merged": "2026-10-29"
+        },
+        {
+          "id": "L3-seed-mandates",
+          "name": "演示种子：订阅代扣授权",
+          "status": "done",
+          "pr": 65,
+          "merged": "2026-10-29"
         }
       ]
     }
