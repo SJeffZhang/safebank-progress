@@ -1,9 +1,9 @@
 {
   "project": "SafeBank Gateway",
   "subtitle": "",
-  "updated_at": "2026-10-29",
+  "updated_at": "2026-10-30",
   "deadline": "2026-11-02",
-  "feature_freeze": "2026-10-30",
+  "feature_freeze": "2026-10-31",
   "architecture": [
     {
       "id": "L1",
@@ -49,8 +49,8 @@
     {
       "id": "P4+",
       "name": "六场景铺开、评测、演示与提交物",
-      "status": "todo",
-      "note": "竖版前端App、BFF和交接文档已随PR #71合入；当前为六场景合成预览，真实三层前端联调尚未验收，P2/P3状态不因此推进"
+      "status": "in_progress",
+      "note": "六场景基础功能冻结优先，前端已接真实服务；通知、可重复初始化、时钟推进与两轮彩排继续验收，攻击和对比随后。"
     }
   ],
   "tracks": [
@@ -189,6 +189,14 @@
           "status": "done",
           "pr": 67,
           "merged": "2026-10-29"
+        },
+        {
+          "id": "L1-demo",
+          "name": "演示计划与回复修复",
+          "status": "done",
+          "pr": 95,
+          "merged": "2026-10-30",
+          "note": "已有演示修复合入；周期来源、赎回、挂失等live缺口继续修复，不代表六场景验收完成。"
         }
       ]
     },
@@ -490,6 +498,28 @@
           "pr": 71,
           "merged": "2026-10-29",
           "note": "merge 7734f1f；继承原石墨灰与香槟金风格，六场景合成预览。最终 head 的前端/单元/真实 PG 共6项CI全绿；合并后前端384项（含新App61）、BFF10项及build通过。真实三层前端联调、开户/PAN及主动推送尚未验收；本轮由Codex亲自实现，未派DS worker。"
+        },
+        {
+          "id": "F-live",
+          "name": "前端真实服务与演示容器",
+          "status": "done",
+          "pr": 94,
+          "merged": "2026-10-30",
+          "note": "前端与同站BFF已接入真实三层服务；六场景两轮彩排仍待完成。"
+        }
+      ]
+    },
+    {
+      "id": "DEMO",
+      "name": "基础版冻结",
+      "components": [
+        {
+          "id": "driver",
+          "name": "Live驱动额度停止与超时保护",
+          "status": "done",
+          "pr": 98,
+          "merged": "2026-10-30",
+          "note": "精确提交本机CI通过：单元3504通过、979跳过；真实PG、并发、一致性与网络恢复通过。真实余额查询完成且业务快照无变化；基础版尚未冻结。"
         }
       ]
     }
@@ -537,5 +567,5 @@
     ],
     "caveat": "各套件互有重叠，数字不能相加；skip不算通过；冻结契约检查通过"
   },
-  "process": "每个组件：DeepSeek worker 实现 → 协调者亲自复跑 → 独立 DeepSeek 评审 → 修复再审 → PR → 精确 head 的 4 项 CI 全绿 → merge commit"
+  "process": "Codex 亲自实现 → 专项红绿核验 → 安全/资金路径只读独审 → 精确提交本机完整 CI → 修复类干净环境 live 验证 → merge commit；先冻结六场景基础版，再做攻击，最后对比"
 }
